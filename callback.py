@@ -9,7 +9,11 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
+GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(13, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(15, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(19, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 #definisco i channel per le callback in entrata
 channel1 = 3
 channel2 = 5
