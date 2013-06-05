@@ -11,33 +11,40 @@ GPIO.setup(5, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 GPIO.setup(7, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 #definisco i channel per le callback in entrata
-channels = [3, 5, 7, 11, 13, 15, 19, 21]
+channel1 = 3
+channel2 = 5
+channel3 = 7
+channel4 = 11
+channel5 = 13
+channel6 = 15
+channel7 = 19
+channel8 = 21
 #definisco il numero di colonna
 column = 0
 
 #definisco la funzione di callback per il gpio3
-def callback1(channels[0]):
+def callback1(channel1):
     print 'colonna = ', column
 
-def callback2(channels[1]):
+def callback2(channel2):
     print 'colonna = ', column
 
-def callback3(channels[2]):
+def callback3(channel3):
     print 'colonna = ', column
 
-def callback4(channels[3]):
+def callback4(channel4):
     print 'colonna = ', column
 
-def callback5(channels[4]):
+def callback5(channel5):
     print 'colonna = ', column
 
-def callback6(channels[5]):
+def callback6(channel6):
     print 'colonna = ', column
 
-def callback7(channels[6]):
+def callback7(channel7):
     print 'colonna = ', column
 
-def callback8(channels[7]):
+def callback8(channel8):
     print 'colonna = ', column
 
 
