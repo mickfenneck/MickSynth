@@ -7,7 +7,7 @@ import time
 #definsco la numerazione dei pin
 GPIO.setmode(GPIO.BOARD)
 
-#definisco i channel per le callback in entrata
+#definisco i channels dei  pin in input
 channel1 = 3
 channel2 = 5
 channel3 = 7
@@ -17,7 +17,7 @@ channel6 = 15
 channel7 = 19
 channel8 = 21
 
-#imposto il pin 3 come entrata (pull up)
+#imposto i channels come input (pull down virtuale)
 GPIO.setup(channel1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(channel2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(channel3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -40,11 +40,11 @@ try:
     print ""
     raw_input("Premi Enter per far cominciare l'analisi...")
 
-    #definisco la funzione di callback per il gpio3
+    #definisco la funzione di callback generale
     def callback1(channel):
         print 'riga: ', channel, ' colonna : ', column
 
-    #event detect delle callback
+    #event detect per i diversi canali (tempo di attesa 150 ms)
     GPIO.add_event_detect(channel1, GPIO.RISING, callback=callback1, bouncetime=150)
     GPIO.add_event_detect(channel2, GPIO.RISING, callback=callback1, bouncetime=150)
     GPIO.add_event_detect(channel3, GPIO.RISING, callback=callback1, bouncetime=150)
