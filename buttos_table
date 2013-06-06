@@ -1,0 +1,20 @@
+//tabella associazione tasti  						
+R\C	1	 2 	3 	4 	5	  6	  7
+1	  8	16	24	32	40	48	
+2	  7	15	23	31	39	47	
+3  	6	14	22	30	38	46	
+4	  5	13	21	29	37	45	
+5	  4	12	20	28	36	44	
+6	  3	11	19	27	35	43	
+7	  2	10	18	26	34	42	
+8	  1	9	  17	25  33	41	49
+tabella associazione note							
+R\C	1	2	3	4	5	6	7
+1	G2	D#3	B3	G4	D#5	B5	
+2	F#2	D3	A#3	F#4	D5	A#5	
+3	F2	C#3	A3	F4	C#5	A5	
+4	E2	C3	G#3	E4	C5	G#5	
+5	D#2	B2	G3	D#4	B4	G5	
+6	D2	A#2	F#3	D4	A#4	F#5	
+7	C#2	A2	F3	C#4	A4	F5	
+8	c2	G#2	E3	C4	G#4	E5	C6
