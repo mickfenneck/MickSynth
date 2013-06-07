@@ -27,17 +27,14 @@ GPIO.setup(channel6, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(channel7, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(channel8, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
-
 #definisco il numero di colonna
 column = 0
 
 #program header printed on the screen
 try:
     print "Callback reading example for MickFenneck's HighSchool Final Project"
-    print "GPIO IN:  3, 5, 7, 11, 13, 15, 19, 21"
-    print ""
-    print "GPIO OUT: 8, 10, 12, 16, 18, 22, 24"
-    print ""
+    print "GPIO IN:  3, 5, 7, 11, 13, 15, 19, 21\n"
+    print "GPIO OUT: 8, 10, 12, 16, 18, 22, 24\n"
     raw_input("Premi Enter per far cominciare l'analisi...")
 
     #definisco la funzione di callback generale
