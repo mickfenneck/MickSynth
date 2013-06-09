@@ -8,14 +8,15 @@ import time
 GPIO.setmode(GPIO.BOARD)
 
 #definisco i channels dei  pin in input
-channel1 = 3
-channel2 = 5
-channel3 = 7
-channel4 = 11
-channel5 = 13
-channel6 = 15
-channel7 = 19
-channel8 = 21
+channel1 = 7
+channel2 = 11
+channel3 = 13
+channel4 = 15
+channel5 = 19
+channel6 = 21
+channel7 = 23
+channel8 = 28
+
 
 #imposto i channels come input (pull down virtuale)
 GPIO.setup(channel1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
