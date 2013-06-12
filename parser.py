@@ -16,11 +16,14 @@ print ("Output: %s" % args.output )
 
 
 #definisco le vars
-time = float(args.time)
-freq = float(args.freq)
-output = str(args.output)
-kind = str(args.kind)
-harm = int(args.harm)
+try:
+    time = float(args.time)
+    freq = float(args.freq)
+    output = str(args.output)
+    kind = str(args.kind)
+    harm = int(args.harm)
+except ValueError:
+    print 'errore nell' inserimento di qualche dato'
 
 #definisco freq
 b = Buffer()
@@ -38,6 +41,7 @@ else:
     print 'Error somefuckingwhere'
 
 b >> output
+
 
 
 
