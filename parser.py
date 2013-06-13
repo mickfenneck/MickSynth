@@ -30,16 +30,14 @@ b = Buffer()
 
 if kind == "sine":
     s = Sine(44100.0)
-    b << s.generate(time,freq)
 elif kind == "saw":
     s = Sawtooth(44100.0,harm)
-    b << s.generate(time,freq)
 elif kind == "square":
     s = Square(44100.0, harm)
-    b << s.generate(time,freq)
 else:
     print 'Error somefuckingwhere'
-
+    
+b << s.generate(time,freq)
 b >> output
 
 
