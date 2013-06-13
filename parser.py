@@ -23,7 +23,7 @@ try:
     kind = str(args.kind)
     harm = int(args.harm)
 except ValueError:
-    print 'errore nell' inserimento di qualche dato'
+    print 'errore nell inserimento di qualche dato'
 
 #definisco freq
 b = Buffer()
