@@ -17,6 +17,17 @@ channel6 = 21
 channel7 = 23
 channel8 = 28
 
+#Matrice contenente le frequenze dei vari suoni
+matrix = [
+[   98,  156, 247, 392, 622, 988,0],     
+[   93,  147, 233, 370, 587, 932,0],  
+[   88,  139, 220, 349, 554, 880,0],    
+[   83,  131, 208, 330, 523, 831,0],    
+[   78,  124, 196, 311, 494, 784,0],   
+[   74,  117, 158, 294, 466, 740,0],    
+[   70,  110, 175, 277, 440, 698,0],  
+[   66,  104, 165, 262, 415, 659, 1046]]
+
 
 #imposto i channels come input (pull down virtuale)
 GPIO.setup(channel1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -34,14 +45,58 @@ column = 0
 #program header printed on the screen
 try:
     print "Callback reading example for MickFenneck's HighSchool Final Project"
-    print "GPIO IN:  3, 5, 7, 11, 13, 15, 19, 21\n"
+    print "GPIO IN:  7, 11, 13, 15, 19, 21, 23, 28\n"
     print "GPIO OUT: 8, 10, 12, 16, 18, 22, 24\n"
     raw_input("Premi Enter per far cominciare l'analisi...")
+
+
+    #calcola l' indice j della matrice RxC
+    def columns(channel):
+        if channel == 8:
+            return 0
+        elif channel == 10:
+            return 1
+        elif channel == 12:
+            return 2
+        elif channel == 16:
+            return 3
+        elif channel == 18:
+            return 4
+        elif channel == 22:
+            return 5
+        elif channel == 24:
+            return 6
+        else:
+            return -1
+        
+    #calcola l' indice i della matrice RxC
+    def rows(channel):
+        if channel == 7:
+            return 0
+        elif channel == 11:
+            return 1
+        elif channel == 13:
+            return 2
+        elif channel == 15:
+            return 3
+        elif channel == 19:
+            return 4
+        elif channel == 21:
+            return 5
+        elif channel == 23:
+            return 6
+        elif channel == 28:
+            return 7
+        else:
+            return -1
 
     #definisco la funzione di callback generale
     def callback1(channel):
         print 'riga: ', channel, ' colonna : ', column
-
+        i = rows(channel)
+        j = columns(column)
+        print matrix[i][j]
+        
     #event detect per i diversi canali (tempo di attesa 150 ms)
     GPIO.add_event_detect(channel1, GPIO.RISING, callback=callback1, bouncetime=150)
     GPIO.add_event_detect(channel2, GPIO.RISING, callback=callback1, bouncetime=150)
