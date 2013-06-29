@@ -1,8 +1,12 @@
 #!/usr/bin/env python2.7  
 
 #Import delle Librerie
-import RPi.GPIO as GPIO
-import time
+import RPi.GPIO as GPIO #lib. GPIO
+import time #lib. time
+from Nsound import * #lib. suono
+
+#definisco l'audio PlayBack di libao
+use("libao")
 
 #definsco la numerazione dei pin
 GPIO.setmode(GPIO.BOARD)
@@ -50,6 +54,20 @@ column = 0
 
 #program header printed on the screen
 try:
+    #definisco la frequenza a cazzo
+    sr = 44100.0
+    #def. la sinusoide
+    sine = Sine(sr)
+    #definisco il suono
+
+
+for d1 in range(6):
+    for d2 in range(6):
+
+    suono = sine.generate(0.2,440.0)
+    #definisco il playback 
+    pb = AudioPlayback(sr, 1, 16)
+
     print "Callback reading example for MickFenneck's HighSchool Final Project"
     print "GPIO IN:  7, 11, 13, 15, 19, 21, 23\n"
     print "GPIO OUT: 8, 10, 12, 16, 18, 22, 24, 26\n"
@@ -130,7 +148,8 @@ try:
             GPIO.output(ch_out, GPIO.HIGH)
             time.sleep(0.025)     
             GPIO.output(ch_out, GPIO.LOW)
-
+            suono >> pb
+        time.sleep(0.1)
 except KeyboardInterrupt:
     GPIO.cleanup()
 GPIO.cleanup()
