@@ -54,17 +54,14 @@ column = 0
 
 #program header printed on the screen
 try:
-    #definisco la frequenza a cazzo
+    #definisco di campionamento della sinusoide fondamentale
     sr = 44100.0
-    #def. la sinusoide
+    #definisco la sinusoide fondamentale
     sine = Sine(sr)
-    #definisco il suono
-
-
-for d1 in range(6):
-    for d2 in range(6):
-
-    suono = sine.generate(0.2,440.0)
+    #definisco la matrice di suoni sostituendo numero del tasto con suono
+    for i in range(7):
+        for dj in range(8):
+            matrix2[i,j] = sine.generate(0.2,matrix[i][j])
     #definisco il playback 
     pb = AudioPlayback(sr, 1, 16)
 
@@ -123,8 +120,9 @@ for d1 in range(6):
             print 'Errore nella lettura del tasto'
         else:
             print 'i = ',(i+1),' j = ',(j+1)
-            print matrix2[i][j]
             print matrix[i][j]
+            matrix2[i][j] >> pb
+        time.sleep(0.2)
 
     #event detect per i diversi canali (tempo di attesa 150 ms)
     GPIO.add_event_detect(channel1, GPIO.RISING, callback=callback1, bouncetime=150)
@@ -148,8 +146,7 @@ for d1 in range(6):
             GPIO.output(ch_out, GPIO.HIGH)
             time.sleep(0.025)     
             GPIO.output(ch_out, GPIO.LOW)
-            suono >> pb
-        time.sleep(0.1)
+
 except KeyboardInterrupt:
     GPIO.cleanup()
 GPIO.cleanup()
